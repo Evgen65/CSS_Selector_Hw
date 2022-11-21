@@ -32,7 +32,6 @@ public class StartCSS_Selection {
         WebElement el = wd.findElement(By.cssSelector("div.login_login__3EHKB"));
         System.out.println(el.getLocation());
     }
-
     @Test
 
     public void testFieldPassword() {
