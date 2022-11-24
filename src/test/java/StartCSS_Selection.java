@@ -41,6 +41,20 @@ public class StartCSS_Selection {
         WebElement element = wd.findElement(By.cssSelector("[placeholder$='Password']"));
         System.out.println(element.isDisplayed());
     }
+    @Test
+    public void testCW() {
+
+            wd.findElement(By.cssSelector("[href='/login']"));
+            wd.findElement(By.cssSelector("[href^='/lo']"));
+            wd.findElement(By.cssSelector("[href*='og']"));
+            wd.findElement(By.cssSelector("[href$='gin']"));
+
+
+       List<WebElement> button = wd.findElements(By.tagName("button"));
+
+
+
+    }
 
     @AfterMethod
     public void postCondition() {
