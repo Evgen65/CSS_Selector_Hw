@@ -45,12 +45,31 @@ public class StartCSS_Selection {
     public void testCW() {
 
             wd.findElement(By.cssSelector("[href='/login']"));
+            wd.findElement(By.xpath("//*[@href='/login']"));
+
             wd.findElement(By.cssSelector("[href^='/lo']"));
+            wd.findElement(By.xpath("//*[starts-with(@href,'/lo')]"));
+
             wd.findElement(By.cssSelector("[href*='og']"));
+            wd.findElement(By.xpath("//*[contains(@href,'/lo')]"));
+
             wd.findElement(By.cssSelector("[href$='gin']"));
 
 
        List<WebElement> button = wd.findElements(By.tagName("button"));
+        WebElement element = wd.findElement(By.tagName("a"));
+
+        wd.findElement(By.id("root"));
+        wd.findElement(By.cssSelector("#root"));
+        wd.findElement(By.xpath("//*[@id='root']"));
+
+
+
+
+
+
+
+
 
 
 

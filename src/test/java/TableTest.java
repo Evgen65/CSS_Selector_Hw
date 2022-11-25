@@ -7,6 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import javax.crypto.spec.PSource;
 import java.net.URL;
 import java.util.List;
 
@@ -30,14 +31,43 @@ public class TableTest {
     @Test
     public void tableHW(){
         // get row 4 content
-        List<WebElement> elements = wd.findElements(By.cssSelector("#customers tr:nth-child(4) n"));
+        List<WebElement> elements = wd.findElements(By.cssSelector("#customers tr:nth-child(4) "));
         System.out.println(elements.size());
         // check if there is text "Mexico" there
+        List<WebElement> row4 = wd.findElements(By.cssSelector("#customers tr:nth-child(4) tr"));
+        String text= "";
+        for (WebElement e: row4){
+            System.out.println(e.getText());
+            text=e.getText();
+            if(text.contains("Mexico"));
+
+
+
+        }
+        System.out.println(text.contains("Mexico"));
+
+        List<WebElement> lastCol = wd.findElements(By.cssSelector("#customers td:last-child"));
+        for(WebElement e: lastCol){
+            System.out.println(e.getText());
+
+
+        }
+        List<WebElement> tr = wd.findElements(By.cssSelector("#customers tr"));
+        int count=0;
+        for(int i=0; i<tr.size();i++){
+
+            if(tr.get(i).getText().contains("Philip Cramer")){
+                System.out.println(i+1);
+            }
+        }
+
+
+
     }
 
     @AfterMethod
     public void tearDown(){
-        wd.close();
+      //  wd.close();
         //  wd.quit();
     }
 
