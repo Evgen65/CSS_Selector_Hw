@@ -31,8 +31,8 @@ public class TableTest {
     @Test
     public void tableHW(){
         // get row 4 content
-        List<WebElement> elements = wd.findElements(By.cssSelector("#customers tr:nth-child(4) "));
-        System.out.println(elements.size());
+     //   List<WebElement> elements = wd.findElements(By.cssSelector("#customers tr:nth-child(4) "));
+      //  System.out.println(elements.size());
         // check if there is text "Mexico" there
         List<WebElement> row4 = wd.findElements(By.cssSelector("#customers tr:nth-child(4) tr"));
         String text= "";
@@ -40,8 +40,7 @@ public class TableTest {
             System.out.println(e.getText());
             text=e.getText();
             if(text.contains("Mexico"));
-
-
+          //  assert(text.contains("Mexico"));
 
         }
         System.out.println(text.contains("Mexico"));
@@ -49,8 +48,6 @@ public class TableTest {
         List<WebElement> lastCol = wd.findElements(By.cssSelector("#customers td:last-child"));
         for(WebElement e: lastCol){
             System.out.println(e.getText());
-
-
         }
         List<WebElement> tr = wd.findElements(By.cssSelector("#customers tr"));
         int count=0;
