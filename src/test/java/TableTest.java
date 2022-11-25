@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.net.URL;
+import java.util.List;
 
 public class TableTest {
 
@@ -25,6 +26,13 @@ public class TableTest {
         String text = canada.getText();
         System.out.println(text);
         Assert.assertEquals(text,"Canada");
+    }
+    @Test
+    public void tableHW(){
+        // get row 4 content
+        List<WebElement> elements = wd.findElements(By.cssSelector("#customers tr:nth-child(4) n"));
+        System.out.println(elements.size());
+        // check if there is text "Mexico" there
     }
 
     @AfterMethod
