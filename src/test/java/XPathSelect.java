@@ -31,6 +31,7 @@ public class XPathSelect {
         }
         System.out.println(text.contains("Mexico"));
 
+
         List<WebElement> amountRows = wd.findElements(By.cssSelector("#customers tr"));
         System.out.println("Amount of Rows = "+amountRows.size());
         Assert.assertEquals(amountRows.size(),9);

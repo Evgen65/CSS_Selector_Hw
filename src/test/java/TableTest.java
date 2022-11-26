@@ -30,11 +30,8 @@ public class TableTest {
     }
     @Test
     public void tableHW(){
-        // get row 4 content
-     //   List<WebElement> elements = wd.findElements(By.cssSelector("#customers tr:nth-child(4) "));
-      //  System.out.println(elements.size());
-        // check if there is text "Mexico" there
-        List<WebElement> row4 = wd.findElements(By.cssSelector("#customers tr:nth-child(4) tr"));
+
+        List<WebElement> row4 = wd.findElements(By.cssSelector("#customers tr:nth-child(4) "));
         String text= "";
         for (WebElement e: row4){
             System.out.println(e.getText());
