@@ -34,8 +34,7 @@ public class XPathSelect {
 
     @Test
     public void testHw5Task1() {
-
-        List<WebElement> row4 = wd.findElements(By.xpath("//*[@id='customers']//tr[4]"));
+                List<WebElement> row4 = wd.findElements(By.xpath("//*[@id='customers']//tr[4]"));
         String text = "";
         for (WebElement e : row4) {
             System.out.println("The row 4 content in Hw5 is " + e.getText());
@@ -66,12 +65,17 @@ public class XPathSelect {
             System.out.println(e.getText());
 
         }
+
+
         List<WebElement> tr = wd.findElements(By.cssSelector("#customers tr"));
         for (int i = 0; i < tr.size(); i++) {
             if (tr.get(i).getText().contains("Philip Cramer")) {
                 System.out.println("The row of Philip Cramer is " + (i + 1));
             }
         }
+
+
+        
 
     }
     @Test
