@@ -20,44 +20,63 @@ public class XPathSelect {
     }
 
     @Test
-    public void testHw4() {
+    public void testHw4Task2() {
         List<WebElement> row4 = wd.findElements(By.cssSelector("#customers tr:nth-child(4)"));
         String text = "";
         for (WebElement e : row4) {
-            System.out.println("The row 4 content is "+e.getText());
+            System.out.println("The row 4 content is " + e.getText());
             text = e.getText();
             if (text.contains("Mexico")) ;
             assert (text.contains("Mexico"));
         }
         System.out.println(text.contains("Mexico"));
+    }
+        @Test
+        public void testHw5Task1() {
 
-
-        List<WebElement> amountRows = wd.findElements(By.cssSelector("#customers tr"));
-        System.out.println("Amount of Rows = "+amountRows.size());
-        Assert.assertEquals(amountRows.size(),9);
-
-        List<WebElement> amountCols = wd.findElements(By.cssSelector("#customers th"));
-        Assert.assertEquals(amountCols.size(),3);
-        System.out.println("Amount of Cols = "+amountCols.size());
-
-        List<WebElement> row3 = wd.findElements(By.cssSelector("#customers tr:nth-child(3)"));
-        for (WebElement e : row3) {
-            System.out.println("The row 3 content is "+e.getText());
+            List<WebElement> row4 = wd.findElements(By.xpath("//*[@id='customers']//tr[4]"));
+            String text="";
+            for (WebElement e : row4) {
+                System.out.println("The row 4 content in Hw5 is " + e.getText());
+                text = e.getText();
+                if (text.contains("Mexico")) ;
+                assert (text.contains("Mexico"));
+            }
+            System.out.println(text.contains("Mexico"));
         }
 
-        List<WebElement> lastCol = wd.findElements(By.cssSelector("#customers td:last-child"));
-        for (WebElement e : lastCol) {
-            System.out.println(e.getText());
+        @Test
+        public void testHw4Task3 () {
+            List<WebElement> amountRows = wd.findElements(By.cssSelector("#customers tr"));
+            System.out.println("Amount of Rows = " + amountRows.size());
+            Assert.assertEquals(amountRows.size(), 9);
+
+            List<WebElement> rowXpath = wd.findElements(By.xpath("//table[@id='customers']/tbody/tr]"));
 
 
-        }
-        List<WebElement> tr = wd.findElements(By.cssSelector("#customers tr"));
-        for(int i=0; i<tr.size();i++){
-            if(tr.get(i).getText().contains("Philip Cramer")){
-                System.out.println("The row of Philip Cramer is "+(i+1));
+            List<WebElement> amountCols = wd.findElements(By.cssSelector("#customers th"));
+            Assert.assertEquals(amountCols.size(), 3);
+            System.out.println("Amount of Cols = " + amountCols.size());
+
+            List<WebElement> row3 = wd.findElements(By.cssSelector("#customers tr:nth-child(3)"));
+            for (WebElement e : row3) {
+                System.out.println("The row 3 content is " + e.getText());
+            }
+
+            List<WebElement> lastCol = wd.findElements(By.cssSelector("#customers td:last-child"));
+            for (WebElement e : lastCol) {
+                System.out.println(e.getText());
+
+
+            }
+            List<WebElement> tr = wd.findElements(By.cssSelector("#customers tr"));
+            for (int i = 0; i < tr.size(); i++) {
+                if (tr.get(i).getText().contains("Philip Cramer")) {
+                    System.out.println("The row of Philip Cramer is " + (i + 1));
+                }
             }
         }
-    }
+
     @AfterMethod
     public void tearDown() {
          wd.close();
