@@ -48,60 +48,59 @@ public class XPathSelect {
         List<WebElement> amountRows = wd.findElements(By.cssSelector("#customers tr"));
         System.out.println("Amount of Rows = " + amountRows.size());
         Assert.assertEquals(amountRows.size(), 9);
-
-        List<WebElement> amountCols = wd.findElements(By.cssSelector("#customers th"));
+        System.out.println("===================");
+        List<WebElement> rowXpath = wd.findElements(By.xpath("//table[@id='customers']/tbody/tr"));
+        System.out.println("Amount of RowXpath="+ rowXpath.size());
+        System.out.println("===================");
+           List<WebElement> amountCols = wd.findElements(By.cssSelector("#customers th"));
         Assert.assertEquals(amountCols.size(), 3);
         System.out.println("Amount of Cols = " + amountCols.size());
-
+        System.out.println("===================");
+        List<WebElement> colsXpath = wd.findElements(By.xpath("//table[1]/tbody[1]/tr/th"));
+        Assert.assertEquals(colsXpath.size(), 3);
+        System.out.println("Amount of ColsXpath = " + colsXpath.size());
+                System.out.println("===================");
         List<WebElement> row3 = wd.findElements(By.cssSelector("#customers tr:nth-child(3)"));
         for (WebElement e : row3) {
             System.out.println("The row 3 content is " + e.getText());
         }
+        System.out.println("===================");
+        List<WebElement> rowXPath3 = wd.findElements(By.xpath("//*[@id='customers']//tr[3]"));
+        for (WebElement e : rowXPath3) {
+            System.out.println("The row 3 content in Hw5 is " + e.getText());
+        }
+        WebElement row3Xpath = wd.findElement(By.xpath("//*[@id='customers']//tr[3]"));
+        System.out.println("The row 3 content in Hw5 is " + row3Xpath.getText());
+        System.out.println("===================");
         List<WebElement> lastCol = wd.findElements(By.cssSelector("#customers td:last-child"));
         for (WebElement e : lastCol) {
             System.out.println(e.getText());
-
         }
+        System.out.println("===================");
+        List<WebElement> lastColXpath = wd.findElements(By.xpath("//*[@id='customers']//td[last()]"));
+        for (WebElement e : lastColXpath) {
+            System.out.println(e.getText());
+        }
+        System.out.println("===================");
+        List<WebElement> lastColXpath2 = wd.findElements(By.xpath("//*[@id='main']//td[3]"));
+        for(WebElement e :lastColXpath2){
+            System.out.println(e.getText());
+        }
+               System.out.println("===================");
         List<WebElement> tr = wd.findElements(By.cssSelector("#customers tr"));
         for (int i = 0; i < tr.size(); i++) {
             if (tr.get(i).getText().contains("Philip Cramer")) {
                 System.out.println("The row of Philip Cramer is " + (i + 1));
             }
         }
-
-    }
-    @Test
-    public void testXpath(){
-         List<WebElement> rowXpath = wd.findElements(By.xpath("//table[@id='customers']/tbody/tr"));
-        System.out.println("Amount of rowXpath="+ rowXpath.size());
-
-        List<WebElement> colsXpath = wd.findElements(By.xpath("//table[1]/tbody[1]/tr/th"));
-        Assert.assertEquals(colsXpath.size(), 3);
-        System.out.println("Amount of ColsXpath = " + colsXpath.size());
-
-        List<WebElement> colsXpath2 = wd.findElements(By.xpath("//*[@id='customers']//tr[1]/th"));
-        Assert.assertEquals(colsXpath2.size(), 3);
-        System.out.println("Amount of ColsXpath2 = " + colsXpath2.size());
-
-        List<WebElement> row3 = wd.findElements(By.xpath("//*[@id='customers']//tr[3]"));
-
-        for (WebElement e : row3) {
-            System.out.println("The row 3 content in Hw5 is " + e.getText());
-        }
-        List<WebElement> lastColXpath = wd.findElements(By.xpath("//table[@id='customers']/tbody/tr/td[3]"));
-        for (WebElement e : lastColXpath) {
-            System.out.println(e.getText());
-        }
-        List<WebElement> lastColXpath2 = wd.findElements(By.xpath("//*[@id='main']//td[3]"));
-        for(WebElement e :lastColXpath2){
-            System.out.println(e.getText());
-        }
+        System.out.println("===================");
         List<WebElement> trXpath = wd.findElements(By.xpath("//*[@id='customers']/tbody/tr"));
-         for (int i = 0; i < trXpath.size(); i++) {
+        for (int i = 0; i < trXpath.size(); i++) {
             if (trXpath.get(i).getText().contains("Philip Cramer")) {
                 System.out.println("The row number of Hw5 of Philip Cramer is " + (i + 1));
             }
         }
+        System.out.println("===================");
         List<WebElement> trXpath2 = wd.findElements(By.xpath("//*[@id='main']//tr"));
         for (int i = 0; i < trXpath2.size(); i++) {
             if (trXpath2.get(i).getText().contains("Philip Cramer")) {
@@ -110,7 +109,7 @@ public class XPathSelect {
         }
 
     }
-        @AfterMethod
+          @AfterMethod
         public void tearDown () {
             wd.close();
             //  wd.quit();
