@@ -18,7 +18,6 @@ public class XPathSelect {
         wd = new ChromeDriver();
         wd.navigate().to("https://www.w3schools.com/css/css_table.asp");
     }
-
     @Test
     public void testHw4Task2() {
         List<WebElement> row4 = wd.findElements(By.cssSelector("#customers tr:nth-child(4)"));
@@ -31,10 +30,9 @@ public class XPathSelect {
         }
         System.out.println(text.contains("Mexico"));
     }
-
     @Test
     public void testHw5Task1() {
-                List<WebElement> row4 = wd.findElements(By.xpath("//*[@id='customers']//tr[4]"));
+        List<WebElement> row4 = wd.findElements(By.xpath("//*[@id='customers']//tr[4]"));
         String text = "";
         for (WebElement e : row4) {
             System.out.println("The row 4 content in Hw5 is " + e.getText());
@@ -59,23 +57,17 @@ public class XPathSelect {
         for (WebElement e : row3) {
             System.out.println("The row 3 content is " + e.getText());
         }
-
         List<WebElement> lastCol = wd.findElements(By.cssSelector("#customers td:last-child"));
         for (WebElement e : lastCol) {
             System.out.println(e.getText());
 
         }
-
-
         List<WebElement> tr = wd.findElements(By.cssSelector("#customers tr"));
         for (int i = 0; i < tr.size(); i++) {
             if (tr.get(i).getText().contains("Philip Cramer")) {
                 System.out.println("The row of Philip Cramer is " + (i + 1));
             }
         }
-
-
-        
 
     }
     @Test
@@ -87,23 +79,35 @@ public class XPathSelect {
         Assert.assertEquals(colsXpath.size(), 3);
         System.out.println("Amount of ColsXpath = " + colsXpath.size());
 
+        List<WebElement> colsXpath2 = wd.findElements(By.xpath("//*[@id='customers']//tr[1]/th"));
+        Assert.assertEquals(colsXpath2.size(), 3);
+        System.out.println("Amount of ColsXpath2 = " + colsXpath2.size());
+
         List<WebElement> row3 = wd.findElements(By.xpath("//*[@id='customers']//tr[3]"));
-        String text = "";
+
         for (WebElement e : row3) {
             System.out.println("The row 3 content in Hw5 is " + e.getText());
         }
-
         List<WebElement> lastColXpath = wd.findElements(By.xpath("//table[@id='customers']/tbody/tr/td[3]"));
-               for (WebElement e : lastColXpath) {
+        for (WebElement e : lastColXpath) {
+            System.out.println(e.getText());
+        }
+        List<WebElement> lastColXpath2 = wd.findElements(By.xpath("//*[@id='main']//td[3]"));
+        for(WebElement e :lastColXpath2){
             System.out.println(e.getText());
         }
         List<WebElement> trXpath = wd.findElements(By.xpath("//*[@id='customers']/tbody/tr"));
-        for (int i = 0; i < trXpath.size(); i++) {
+         for (int i = 0; i < trXpath.size(); i++) {
             if (trXpath.get(i).getText().contains("Philip Cramer")) {
                 System.out.println("The row number of Hw5 of Philip Cramer is " + (i + 1));
             }
         }
-
+        List<WebElement> trXpath2 = wd.findElements(By.xpath("//*[@id='main']//tr"));
+        for (int i = 0; i < trXpath2.size(); i++) {
+            if (trXpath2.get(i).getText().contains("Philip Cramer")) {
+                System.out.println("The row number of Hw5 of Philip Cramer in trXpath2  is " + (i + 1));
+            }
+        }
 
     }
         @AfterMethod
