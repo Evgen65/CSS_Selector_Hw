@@ -20,6 +20,7 @@ public class XPathSelect {
     }
     @Test
     public void testHw4Task2() {
+      //  List<WebElement> row4 = wd.findElements(By.cssSelector("#customers tr:nth-child(4)"));
         List<WebElement> row4 = wd.findElements(By.cssSelector("#customers tr:nth-child(4)"));
         String text = "";
         for (WebElement e : row4) {
@@ -37,10 +38,10 @@ public class XPathSelect {
         for (WebElement e : row4) {
             System.out.println("The row 4 content in Hw5 is " + e.getText());
             text = e.getText();
-            if (text.contains("Mexico")) ;
+            if (text.contains("Mexico")) System.out.println("Yes");
             assert (text.contains("Mexico"));
         }
-        System.out.println(text.contains("Mexico"));
+        System.out.println(text.contains("Mexico")) ;
     }
 
     @Test
