@@ -110,6 +110,7 @@ public class XPathSelect {
         }
 
     }
+
           @AfterMethod
         public void tearDown () {
             wd.close();
